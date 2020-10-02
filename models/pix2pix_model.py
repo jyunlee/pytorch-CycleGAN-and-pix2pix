@@ -98,7 +98,7 @@ class Pix2PixModel(BaseModel):
         pred_real = self.netD(real_AB)
         self.loss_D_real = self.criterionGAN(pred_real, True)
         # combine loss and calculate gradients
-        self.loss_D = (self.loss_D_fake + self.loss_D_real) * 0.5
+        self.loss_D = (self.loss_D_fake + self.loss_D_real) * 0.1
         self.loss_D.backward()
 
     def backward_G(self):
